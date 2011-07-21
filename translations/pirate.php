@@ -232,9 +232,9 @@ class PirateTranslations extends Translations {
      * @var string
      * @return string
      */
-    public function additionalMunging($text) {
+    public function additionalMunging($text, $context) {
     	$text = preg_replace("/ing/i", "in'", $text);
-    	$this->debug('<p>Additional munging: ' . $text . '</p>');
+    	$context->debug('<p>Additional munging: ' . $text . '</p>');
     	return $text;
     }
 }

@@ -217,7 +217,7 @@ class TweetMunger {
         $text = str_replace('#', '_', $text);
 
         // use the translator class to translate
-		$text = $this->translator->translate($text);
+		$text = $this->translator->translate($text, $this);
 				
 		// ensure new text length is <= 140 characters
         if (strlen($text) > 140) {
@@ -256,7 +256,7 @@ class TweetMunger {
 	/**
 	 *
 	 */
-	private function debug($text) {
+	public function debug($text) {
 //		if ($this->debugMode) {
 			echo $text;
 //		}
