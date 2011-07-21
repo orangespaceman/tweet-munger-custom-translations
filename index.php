@@ -13,16 +13,16 @@
 		
 			$tweetMunger = new TweetMunger(array(
 				'debugMode' => true,
-				'originalTwitterAccount' => 'stephenfry',
-				'mungedTwitterAccount' => 'stephenfrirate',
-				'userAgentAccount' => 'thatsfixedit@hotmail.com',
+				'originalTwitterAccount' => 'xxx',
+				'mungedTwitterAccount' => 'yyy',
+				'userAgentAccount' => 'xxx@yyy.com',
                 'newTweetCount' => 10,
                 'ignoreRetweets' => true,
                 'translations' => 'pirate',
-				'twitterConsumerKey' => 'mhPdDlAavrMtomrrEQ5Q',
-				'twitterConsumerSecret' => 'HWVpqDu3eeIl524w8bY929bt0aW7XiQmqIvI42lQxk',
-				'twitterConsumerOauthToken' => '339560278-yqCzPb7ywO4kIZ87IlOM10CZzDLe9lV6qnhOPn42',
-				'twitterConsumerOauthSecret' => 'DefshQsfi4NrQ3j3fhHB9UN2bUGyv7xOMSPA7IIgSg'
+				'twitterConsumerKey' => 'x',
+				'twitterConsumerSecret' => 'x',
+				'twitterConsumerOauthToken' => 'x',
+				'twitterConsumerOauthSecret' => 'x'
 			));
 		?>
 	</body>
