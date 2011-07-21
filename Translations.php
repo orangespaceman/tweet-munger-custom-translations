@@ -28,24 +28,24 @@ abstract class Translations {
     public $translations = array();
 
     /**
-	 * Translate!
-	 * Over-writable if necessary
+     * Translate!
+     * Over-writable if necessary
      * 
      * @var string $text
      * @return string
-	 */
-	public function translate($text, $context) {
+     */
+    public function translate($text, $context) {
 
-    	foreach($this->translations as $search => $replace) {
-    		$text = preg_replace("/\b$search\b/i", $replace, $text);
-    	}
+        foreach($this->translations as $search => $replace) {
+            $text = preg_replace("/\b$search\b/i", $replace, $text);
+        }
 
-    	// condition : sometimes add in a funny end to a sentence
-    	if (count($this->shouts > 0)) {
-        	if (1 == rand(1,$this->shoutFrequency)) {
-        		shuffle($this->shouts);			
-        		$text = preg_replace("/\. /", $this->shouts[0], $text);
-        	}
+        // condition : sometimes add in a funny end to a sentence
+        if (count($this->shouts > 0)) {
+            if (1 == rand(1,$this->shoutFrequency)) {
+                shuffle($this->shouts);            
+                $text = preg_replace("/\. /", $this->shouts[0], $text);
+            }
         }
         
         $context->debug('<p>Munging: ' . $text . '</p>');
@@ -55,6 +55,6 @@ abstract class Translations {
             $text = $this->additionalMunging($text, $context);
         }
 
-		return $text;
+        return $text;
     }
 }

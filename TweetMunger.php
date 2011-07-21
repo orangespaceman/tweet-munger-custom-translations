@@ -17,7 +17,7 @@ require_once('Translations.php');
  * Tweet Munger Class
  */
 class TweetMunger {
-	
+    
     /**
      * The Twitter Search object
      *
@@ -111,8 +111,8 @@ class TweetMunger {
       * @var obj
       */
       protected $translator;
-	
-	
+    
+    
     /**
      * Constructor.
      * Save/overwrite any default settings passed through during instantiation.  
@@ -133,13 +133,13 @@ class TweetMunger {
         // prep the selected translations
         require_once('translations/'.$this->translations.'.php');
         $translatorClass = ucFirst($this->translations)."Translations";
-        $this->translator = new $translatorClass;		
-		
-		// debug
-		if ($this->debugMode) {
-			$this->debug('<p><em>(Debug mode on, not posting to twitter)</em></p>');
-		}
-		
+        $this->translator = new $translatorClass;        
+        
+        // debug
+        if ($this->debugMode) {
+            $this->debug('<p><em>(Debug mode on, not posting to twitter)</em></p>');
+        }
+        
         // get the latest tweet from the munged account
         $this->twitterSearch = new TwitterSearch();
         $this->twitterSearch->user_agent = 'phptwittersearch:'.$this->userAgentAccount;
@@ -160,9 +160,9 @@ class TweetMunger {
                 $this->tweet($text);
             }
         }
-	}
-	
-	
+    }
+    
+    
     /**
      * Get the Twitter ID of the latest translated tweet
      * 
@@ -200,7 +200,7 @@ class TweetMunger {
      * @var int $id
      * @return string
      */
-	private function mungText($text, $id) {
+    private function mungText($text, $id) {
 
         $this->debug('<p>Original Tweet (ID - '.$id.'): ' . $text . '</p>');
         
@@ -217,21 +217,21 @@ class TweetMunger {
         $text = str_replace('#', '_', $text);
 
         // use the translator class to translate
-		$text = $this->translator->translate($text, $this);
-				
-		// ensure new text length is <= 140 characters
+        $text = $this->translator->translate($text, $this);
+                
+        // ensure new text length is <= 140 characters
         if (strlen($text) > 140) {
             $text = substr($text, 0, 137) . "...";
             $this->debug('<p>Text is too long, truncating...</p>');
         }
 
-		$this->debug('<p>Translation: ' . $text . '</p>');
+        $this->debug('<p>Translation: ' . $text . '</p>');
         
         // return the newly translated text
         return $text;
-	}
-	
-	
+    }
+    
+    
     /**
       * Tweet the new text (if not in debug mode)
       * 
@@ -251,14 +251,14 @@ class TweetMunger {
          }
          $this->debug('<hr />');
      }
-	
-	
-	/**
-	 *
-	 */
-	public function debug($text) {
-//		if ($this->debugMode) {
-			echo $text;
-//		}
-	}
+    
+    
+    /**
+     *
+     */
+    public function debug($text) {
+//      if ($this->debugMode) {
+        echo $text;
+//      }
+    }
 }
