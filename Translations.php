@@ -18,14 +18,14 @@ abstract class Translations {
      *
      * @var array
      */
-    abstract $shouts = array();
+    public $shouts = array();
      
     /**
      * Translations!
      *
      * @var array
      */
-    abstract $translations = array();
+    public $translations = array();
 
     /**
 	 * Translate!
