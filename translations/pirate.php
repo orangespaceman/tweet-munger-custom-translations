@@ -4,7 +4,7 @@
  */
 class PirateTranslations extends Translations {
 
-    $shouts = array(
+    public $shouts = array(
        	", avast! ",
        	", ahoy! ",
        	", and a bottle of rum! ",
@@ -28,7 +28,7 @@ class PirateTranslations extends Translations {
     );
 
 
-    $translations = array(
+    public $translations = array(
        	'after' => 'aft',
        	'afternoon' => 'avo\'',
        	'airplane' => 'flying machine',
@@ -232,7 +232,7 @@ class PirateTranslations extends Translations {
      * @var string
      * @return string
      */
-    function additionalMunging($text) {
+    public function additionalMunging($text) {
     	$text = preg_replace("/ing/i", "in'", $text);
     	$this->debug('<p>Additional munging: ' . $text . '</p>');
     	return $text;
