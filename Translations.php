@@ -34,7 +34,7 @@ abstract class Translations {
      * @var string $text
      * @return string
 	 */
-	public function translate($text) {
+	public function translate($text, $context) {
 
     	foreach($this->translations as $search => $replace) {
     		$text = preg_replace("/\b$search\b/i", $replace, $text);
@@ -48,11 +48,11 @@ abstract class Translations {
         	}
         }
         
-        $this->debug('<p>Munging: ' . $text . '</p>');
+        $context->debug('<p>Munging: ' . $text . '</p>');
         
         // condition : does the translation class contain any additional munging techniques?
         if (method_exists($this, "additionalMunging")) {
-            $text = $this->additionalMunging($text);
+            $text = $this->additionalMunging($text, $context);
         }
 
 		return $text;
